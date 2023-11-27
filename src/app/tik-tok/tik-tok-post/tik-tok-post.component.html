@@ -1,0 +1,51 @@
+<div class="mainContainer">
+    <video class="video" id="vid{{TVideo.id}}" src="{{TVideo.videoSrc}}" (click)="play(video)" #video loop ></video>
+
+
+    <div class="controls">
+        <!-- User Icon -->
+        <div class="userControlIcon" (click)="toggleUser()">
+            <div class="iconCircle">
+                <div class="userIconPlus"><span>+</span></div>
+            </div>
+        </div>
+        <!-- Likes -->
+        <div class="controlIcon" (click)="like()">
+            <img class="controlIconImg heart" src="assets/TikTok/Icons/heart.png" alt=""
+                [ngClass]="{filterPink: TVideo.liked, filterWhite : !TVideo.liked}">
+            <span class="controlText">{{TVideo.likes}}</span>
+        </div>
+        <!-- Comments -->
+        <div class="controlIcon" (click)="toggleComment()">
+            <img class="controlIconImg" src="assets/TikTok/Icons/comment.png" alt="">
+            <span class="controlText">{{TVideo.comments.length}}</span>
+        </div>
+        <!-- Favorites -->
+        <div class="controlIcon" (click)="addFav()">
+            <img class="controlIconImg" src="assets/TikTok/Icons/favorites.png" alt=""
+                [ngClass]="{filterYellow: fav, filterWhite : !fav}">
+            <span class="controlText">{{TVideo.favorites}}</span>
+        </div>
+        <!-- Music Cover -->
+        <div class="cImg">
+            <p></p>
+        </div>
+    </div>
+
+    <!-- soundInfo -->
+    <div class="soundInfoContainer">
+        <span class="textUser">{{TVideo.user}}</span>
+        <span class="textDesc">{{TVideo.desc}}</span>
+        <div class="musicIconCont">
+            <img class="musicIcon" src="assets/TikTok/Icons/music.png" alt="">
+            <span class="musicText">{{TVideo.soundText}}</span>
+        </div>
+    </div>
+
+    <app-tik-tok-seek-bar [video]=video></app-tik-tok-seek-bar>
+
+    <!-- Heart Animation -->
+    <img class="filterPink heartAnim" src="assets/TikTok/Icons/bigHeart.png" alt="" [@heart]="heartState">
+    <img class="filterGrey playBtn" src="assets/TikTok/Icons/Play.png" alt="" *ngIf="video.paused">
+
+</div>

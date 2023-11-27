@@ -1,0 +1,66 @@
+.mainCont{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    background-color: #130B18; 
+    z-index: 10;
+    animation: hide 0.5s linear forwards;
+    animation-delay: 2.3s;
+}
+
+.logo{
+    max-width: 50%;
+    max-height: 50%;
+}
+
+.textBig{
+    font-size: 4em;
+    animation: up 1.5s ease-in-out forwards;
+}
+
+.textSmall{
+    font-size: 1.5em;
+    opacity: 0;
+    animation: fade 0.8s linear forwards;
+    animation-delay: 1.5s;
+}
+
+.white{
+    color: white;
+}
+
+@keyframes up {
+    0%{
+        transform: translateY(200%);
+    }
+    50%{
+        transform: translateY(-10%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes hide {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

@@ -1,0 +1,68 @@
+<div class="mainCont">
+
+    <div class="videoCont">
+        <video id="userVideo" class="vid" src="{{TVideo.videoSrc}}" (click)="play(video)" #video loop></video>
+    </div>
+
+    
+    <div class="controls">
+        <!-- User Icon -->
+        <div class="userControlIcon" (click)="toggleUser()">
+            <div class="iconCircle">
+                <div class="userIconPlus"><span>+</span></div>
+            </div>
+        </div>
+        <!-- Likes -->
+        <div class="controlIcon" (click)="like()">
+            <img class="controlIconImg heart" src="assets/TikTok/Icons/heart.png" alt=""
+                [ngClass]="{filterPink: TVideo.liked, filterWhite : !TVideo.liked}">
+            <span class="controlText">{{TVideo.likes}}</span>
+        </div>
+        <!-- Comments -->
+        <div class="controlIcon" (click)="toggleComment()">
+            <img class="controlIconImg" src="assets/TikTok/Icons/comment.png" alt="">
+            <span class="controlText">{{TVideo.comments.length}}</span>
+        </div>
+        <!-- Favorites -->
+        <div class="controlIcon" (click)="addFav()">
+            <img class="controlIconImg" src="assets/TikTok/Icons/favorites.png" alt=""
+                [ngClass]="{filterYellow: fav, filterWhite : !fav}">
+            <span class="controlText">{{TVideo.favorites}}</span>
+        </div>
+        <!-- Music Cover -->
+        <div class="cImg">
+            <p></p>
+        </div>
+    </div>
+
+        <!-- soundInfo -->
+        <div class="soundInfoContainer">
+            <span class="textUser">{{TVideo.user}}</span>
+            <span class="textDesc">{{TVideo.desc}}</span>
+            <div class="musicIconCont">
+                <img class="musicIcon" src="assets/TikTok/Icons/music.png" alt="">
+                <span class="musicText">{{TVideo.soundText}}</span>
+            </div>
+        </div>
+
+        <!-- SeekBar -->
+        <div class="mainSeekCont" id={{contID}} >
+            <div class="seekContainer" >
+                <span class="bar" #seekFill></span>
+                <input class="seekBar" type="range" min="0" max={{video.duration}} value="0"
+                (input)="setBar(inputRange, seekFill)" (change)="seekTo(inputRange, seekFill)" #inputRange>
+            </div>
+        </div>
+        <!-- SeekBar -->
+
+        <div class="addComment">
+            <input class="addCommentInput" type="text" placeholder="Add Comment..." (click)="toggleComment()">
+        </div>
+    
+        <!-- Heart Animation -->
+        <img class="filterPink heartAnim" src="assets/TikTok/Icons/bigHeart.png" alt="" [@heart]="heartState">
+        <img class="filterGrey playBtn" src="assets/TikTok/Icons/Play.png" alt="" *ngIf="video.paused">
+        <div class="returnArrow" (click)="setNav()">
+            <img class="filterWhite returnArrowImg" src="assets/TikTok/Icons/leftArrow.png" alt="">
+        </div>
+</div>

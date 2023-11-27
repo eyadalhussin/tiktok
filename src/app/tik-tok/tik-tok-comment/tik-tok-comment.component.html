@@ -1,0 +1,54 @@
+<div class="mainCommentCont" id="commentCont">
+    <div class="topBar">
+        <span>{{comments.length}} Comments</span>
+        <button class="closeBtn" (click)="closeComment()">X</button>
+    </div>
+    <div class="midCont">
+        <p *ngIf="comments.length==0" style="align-self: center;">Be the first one to Comment</p>
+        <div class="commiCont" *ngFor="let comment of comments">
+            <!-- Comment -->
+            <div class="userIconCont">
+                <img class="userIcon" src="assets/TikTok/Icons/user.png" alt="">
+            </div>
+            <div class="userInfoCont">
+                <span class="userName">{{comment.user}}</span>
+                <span class="commentText">{{comment.text}}</span>
+                <div class="dateReply">
+                    <span>{{comment.CDate.getMonth()}}-{{comment.CDate.getDay()}}</span>
+                    <button class="replyButton" (click)="toggleInput(comment)">reply</button>
+                </div>
+                <button (click)="comment.replyToggled = !comment.replyToggled" class="repliesBtn"
+                    *ngIf="comment.replies.length > 0">
+                <span *ngIf="!comment.replyToggled">View all
+                    Replies({{comment.replies.length}})</span>
+                </button>
+                <!-- Replies -->
+                <div class="replies" *ngIf="comment.replyToggled">
+                    <div class="replyCont" *ngFor="let reply of comment.replies">
+                        <div class="userIconCont">
+                            <img class="userIcon" src="assets/TikTok/Icons/user.png" alt="">
+                        </div>
+                        <div class="userInfoCont">
+                            <span class="userName">{{reply.user}}</span>
+                            <span class="replyText">{{reply.text}}</span>
+                            <span>{{reply.CDate.getMonth()}}-{{reply.CDate.getDay()}}</span>
+                        </div>
+                        <div class="likesCont" (click)="incLikesRep(reply)">
+                            <img class="heart filterPink" src="assets/TikTok/Icons/heart.png" alt="" *ngIf="reply.liked">
+                            <img class="heart" src="assets/TikTok/Icons/heartStroked.png" alt="" *ngIf="!reply.liked">
+                            <span class="likesCount">{{reply.likes}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Replies -->
+            </div>
+            <div class="likesCont" (click)="incLikes(comment)">
+                <img class="heart filterPink" src="assets/TikTok/Icons/heart.png" alt="" *ngIf="comment.liked">
+                <img class="heart" src="assets/TikTok/Icons/heartStroked.png" alt="" *ngIf="!comment.liked">
+                <span class="likesCount">{{comment.likes}}</span>
+            </div>
+            <!-- Comment -->
+        </div>
+    </div>
+    <app-tik-tok-input-bar></app-tik-tok-input-bar>
+</div>

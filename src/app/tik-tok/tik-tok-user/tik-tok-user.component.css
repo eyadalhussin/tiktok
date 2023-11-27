@@ -1,0 +1,326 @@
+:host(app-tik-tok-profile) {
+    width: 100%;
+    height: 93%;
+    z-index: 4;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button {
+    all: unset;
+}
+
+.mainCont {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-bottom: 1px solid #333333;
+    overflow: scroll;
+    z-index: 4;
+}
+
+.topCont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 5%;
+    padding: 0 1.5em;
+}
+
+.topCont span {
+    font-family: 'Arial';
+    font-weight: 700;
+}
+
+.topIcon {
+    height: 25px;
+    width: 25px;
+}
+
+.userCont {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.userIcon {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: url("^assets/TikTok/Users/me.jpeg");
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.uIcon {
+    color: white;
+    font-size: 2em;
+}
+
+.userPlus {
+    text-align: center;
+    background-color: #00f2ea;
+    width: 1em;
+    height: 1em;
+    color: white;
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+    border-radius: 50%;
+    font-size: 1.2em;
+    line-height: 1em;
+    border: 2px solid white;
+}
+
+.userTextCont{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userText {
+    color: black;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.userInfo {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.infoCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.infoCount {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.infoText {
+    font-size: 0.8em;
+    color: #727272;
+}
+
+.editCont {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.editBtn {
+    all: unset;
+    color: white;
+    background-color: #ff0050;
+    padding: 0.5em 3em;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.bioCont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: fit-content;
+    align-self: center;
+}
+
+.tLogo {
+    margin-top: 1em;
+    color: black;
+    font-size: 5em;
+    text-shadow: 3px 3px #ff0050, -3px -3px #00f2ea;
+    pointer-events: none;
+    align-self: center;
+    animation: heartBeat 0.3s alternate infinite;
+}
+
+.gridIcons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 5%;
+    margin-top: 1em;
+}
+
+.gridIconButton {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gridIconButton:hover,
+.gridIconButton:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.gridIcon {
+    max-height: 60%;
+    max-width: 25%;
+}
+
+.actBar{
+    position: relative;
+    width: 100%;
+    height: 0.3em;
+    background-color: rgba(0, 0, 0, 0.04);
+    margin-bottom: 0.2em;
+}
+
+.actBar span {
+    position: absolute;
+    background-color: black;
+    height: 0.3em;
+    width: 10%;
+    transition: 0.2s linear;
+    /* transform: translateX(700%); */
+}
+
+.translate200{
+     transform: translateX(200%);
+}
+
+.translate700{
+    transform: translateX(700%);
+}
+
+.videoCont{
+    position: relative;
+    overflow: hidden;
+    width: 98%;
+    height: 60%;
+}
+
+.videosContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    width: 100%;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+/* .videosContainer{
+    display: flex;
+    width: 100%;
+    min-height: 200px;
+    overflow: hidden;
+} */
+
+.vid{
+    object-fit: cover;
+    /* width: 99%;
+    height: 25vh; */
+    /* height: 100%; */
+    width: 100%;
+    aspect-ratio: 1 / 1.5;
+}
+
+.viedoInfoCont{
+    position: absolute;
+    bottom: 10%;
+    left: 1%;
+    width: 50%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.playImg{
+    max-height: 1.5em;
+    max-width: 1.5em;
+}
+
+.privateInfoCont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 2em;
+}
+
+
+
+@keyframes heartBeat {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.03);
+    }
+
+}
+
+.filterGrey{
+    filter: invert(74%) sepia(0%) saturate(1401%) hue-rotate(134deg) brightness(83%) contrast(87%);
+}
+
+.filterWhite {
+    filter: invert(100%) sepia(1%) saturate(1997%) hue-rotate(158deg) brightness(115%) contrast(100%);
+}
+
+.filterPink{
+    filter: invert(28%) sepia(95%) saturate(2828%) hue-rotate(332deg) brightness(100%) contrast(103%);
+}
+
+.white {
+    color: white;
+}
+
+.greyCol {
+    color: #333333;
+}
+
+.lightGrey {
+    color: #727272;
+}
+
+.textBig {
+    font-size: 4em;
+}
+
+.textNorm {
+    font-size: 1.5em;
+    z-index: 4;
+}
+
+.hidden{
+    visibility: hidden;
+}

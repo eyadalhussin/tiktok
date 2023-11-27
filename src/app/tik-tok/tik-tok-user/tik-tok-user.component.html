@@ -1,0 +1,86 @@
+<div class="mainCont">
+
+    <div class="topCont">
+        <img class="topIcon" src="assets/TikTok/Icons/return.png" alt="" (click)="returnToHome()">
+        <span>Eyad Alhussin</span>
+        <div class="bellIcon" (click)="toggleBell()">
+            <img class="topIcon" src="assets/TikTok/Icons/bellOutlined.png" alt="" *ngIf="!notificationSelected">
+            <img class="topIcon filterPink" src="assets/TikTok/Icons/bellPink.png" alt="" *ngIf="notificationSelected">
+
+        </div>
+    </div>
+
+    <div class="userCont">
+        <div class="userIcon">
+        </div>
+    </div>
+
+    <div class="userTextCont">
+        <span class="userText">@edev1997</span>
+    </div>
+
+    <div class="userInfo">
+        <div class="infoCont">
+            <span class="infoCount">0</span>
+            <span class="infoText">Following</span>
+        </div>
+
+        <div class="infoCont">
+            <span class="infoText">|</span>
+        </div>
+
+        <div class="infoCont">
+            <span class="infoCount">10</span>
+            <span class="infoText">Followers</span>
+        </div>
+
+        <div class="infoCont">
+            <span class="infoText">|</span>
+        </div>
+
+        <div class="infoCont">
+            <span class="infoCount">540</span>
+            <span class="infoText">Like</span>
+        </div>
+    </div>
+
+    <div class="editCont">
+        <button class="editBtn" type="button" (click)="toggleFollow()" [@followBtn]="followState">{{followState}}</button>
+    </div>
+    <div class="bioCont">
+        <span>The person who made this clone, feel free to contact me anytime :D</span>
+    </div>
+
+    <div class="gridIcons">
+        <button class="gridIconButton" (click)="toggleGridIcon('videos')">
+            <img [ngClass]="{filterGrey:selectedGridIcon == 'private'}" class="gridIcon" src="assets/TikTok/Icons/videos.png" alt="">
+        </button>
+
+        <button class="gridIconButton" (click)="toggleGridIcon('private')">
+            <img [ngClass]="{filterGrey:selectedGridIcon == 'videos'}" class="gridIcon" src="assets/TikTok/Icons/heartPrivate.png" alt="">
+        </button>
+    </div>
+
+    <div class="actBar">
+        <span id="actBarSpan" [ngClass]="{translate200:selectedGridIcon == 'videos', translate700:selectedGridIcon == 'private'}"></span>
+    </div>
+
+    <div class="privateInfoCont" *ngIf="selectedGridIcon == 'private'">
+        <p style="font-weight: 700;">This user's liked videos are private</p>
+        <p>Videos liked by @edev1997 are currently hidden</p>
+    </div>
+    
+    <div class="videosContainer"  [ngClass]="{hidden:selectedGridIcon != 'videos'}">
+        <div class="videoCont" *ngFor="let element of videos">
+            <video class="vid" src="{{element.videoSrc}}" (click)="openVideo(element)"></video>
+            <div class="viedoInfoCont">
+                <img class="playImg" src="assets/TikTok/Icons/playVid.png" alt="">
+                <span class="white">{{element.views}}</span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>

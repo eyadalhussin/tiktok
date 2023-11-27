@@ -1,0 +1,210 @@
+:host(app-tik-tok-post) {
+    height: 100%;
+    width: 100%;
+}
+
+button {
+    all: unset;
+}
+
+.mainContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: 2;
+}
+
+.controls {
+    position: absolute;
+    bottom: 4%;
+    right: -3%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.controlIcon {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2em;
+}
+
+.controlIconImg {
+    width: 40%;
+    height: 50%;
+}
+
+.cImg {
+    width: 2.5em;
+    height: 2.5em;
+    background-size: contain;
+    background-image: url('^assets/TikTok/Icons/AlanWalker.jpg');
+    border-radius: 50%;
+    animation: spin 5s infinite linear;
+    border: 2px solid white;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.userControlIcon {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconCircle {
+    position: relative;
+    background-size: cover;
+    background-image: url('^assets/TikTok/Users/me.jpeg');
+    border: 2px solid white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.userIconPlus {
+    position: absolute;
+    bottom: -15%;
+    left: 30%;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #FE2C55;
+}
+
+.userIconPlus span {
+    font-weight: 700;
+    color: white;
+}
+
+.controlText {
+    color: white;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.soundInfoContainer {
+    position: absolute;
+    bottom: 4%;
+    left: 1%;
+    z-index: 3;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 0.5em;
+}
+
+.musicCover {
+    max-width: 10%;
+    max-height: 90%;
+}
+
+.musicIconCont {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.musicIcon {
+    width: 25px;
+    height: 25px;
+}
+
+.musicText {
+    color: white;
+    font-size: 0.8em;
+    text-overflow: ellipsis;
+}
+
+.textUser {
+    color: white;
+    font-weight: 700;
+}
+
+.textDesc {
+    color: white;
+}
+
+.filterPink {
+    filter: invert(28%) sepia(95%) saturate(2828%) hue-rotate(332deg) brightness(100%) contrast(103%);
+}
+
+.filterWhite {
+    filter: invert(98%) sepia(3%) saturate(464%) hue-rotate(81deg) brightness(116%) contrast(100%);
+}
+
+.filterYellow {
+    filter: invert(78%) sepia(22%) saturate(6129%) hue-rotate(357deg) brightness(106%) contrast(100%);
+}
+
+.filterGrey {
+    filter: invert(100%) sepia(47%) saturate(83%) hue-rotate(170deg) brightness(112%) contrast(94%);
+}
+
+.heartAnim {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    max-width: 60vw;
+    max-height: 60vh;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.playBtn {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    max-width: 20vw;
+    max-height: 20vh;
+    z-index: 4;
+    pointer-events: none;
+    animation: play 0.2s ease forwards;
+}
+
+@keyframes play {
+    from {
+        transform: scale(2);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proxima+Nova">
+
+<div class="main">
+    <div class="mainContainer">
+
+        <div class="topContainer">
+            <!-- Live -->
+            <div class="navIcon" (click)="setNav('Live')">
+                <img class="iconImgBig" src="assets/TikTok/Icons/live.png" alt="">
+            </div>
+
+            <!-- ForYou & Following -->
+            <div class="forYou">
+                <button class="forYouButton" [ngClass]="{boldi:!forYou}" (click)="forYou = false">Follwing</button>
+                <span class="white"> | </span>
+                <button class="forYouButton" [ngClass]="{boldi:forYou}" (click)="forYou = true">For You</button>
+            </div>
+
+            <!-- Search -->
+            <div class="navIcon" (click)="setNav('Search')">
+                <img class="iconImgBig filterWhite" src="assets/TikTok/Icons/search.png" alt="">
+            </div>
+        </div>
+
+        <div class="bodyContainer">
+            <app-tik-tok-post *ngFor="let element of videos" [TVideo]="element"></app-tik-tok-post>
+            <app-tik-tok-friends *ngIf="selectedNav == 'Friends'"></app-tik-tok-friends>
+            <app-tik-tok-inbox *ngIf="selectedNav == 'Inbox'"></app-tik-tok-inbox>
+            <app-tik-tok-profile *ngIf="selectedNav == 'Profile'"></app-tik-tok-profile>
+            <app-tik-tok-user *ngIf="selectedNav == 'User'"></app-tik-tok-user>
+            <app-tik-tok-video *ngIf="selectedNav == 'Video'"></app-tik-tok-video>
+            <app-tik-tok-search *ngIf="selectedNav == 'Search'" desc="Search feature is not implemented">
+            </app-tik-tok-search>
+            <app-tik-tok-search *ngIf="selectedNav == 'Live'" desc="Live feature is not implemented">
+            </app-tik-tok-search>
+            <app-tik-tok-loading *ngIf="isLoading"></app-tik-tok-loading>
+        </div>
+
+        <!-- Nav  -->
+        <div class="navContainer" *ngIf="!commenting">
+            <!-- Home -->
+            <div class="navIcon" (click)="setNav('Home')">
+                <img class="iconImg" src="assets/TikTok/Icons/home.png" alt=""
+                    [ngClass]="{filterWhite:selectedNav == 'Home', filterGrey: selectedNav != 'Home'}">
+                <span class="iconText">Home</span>
+            </div>
+            <!-- Home -->
+            <div class="navIcon" (click)="setNav('Friends')">
+                <img class="iconImg" src="assets/TikTok/Icons/friends.png" alt=""
+                    [ngClass]="{filterWhite:selectedNav == 'Friends', filterGrey: selectedNav != 'Friends' }">
+                <span class="iconText">Friends</span>
+            </div>
+            <!-- Home -->
+            <div class="navIcon">
+                <button class="plusBtn">+</button>
+            </div>
+            <!-- Home -->
+            <div class="navIcon" (click)="setNav('Inbox')">
+                <img class="iconImg" src="assets/TikTok/Icons/inbox.png" alt=""
+                    [ngClass]="{filterWhite:selectedNav == 'Inbox', filterGrey: selectedNav != 'Inbox' }">
+                <span class="iconText">Inbox</span>
+            </div>
+            <!-- Home -->
+            <div class="navIcon" (click)="setNav('Profile')">
+                <img class="iconImg" src="assets/TikTok/Icons/user.png" alt=""
+                    [ngClass]="{filterWhite:selectedNav == 'Profile', filterGrey: selectedNav != 'Profile' }">
+                <span class="iconText">Profile</span>
+            </div>
+        </div>
+
+        <app-tik-tok-comment *ngIf="commenting"></app-tik-tok-comment>
+    </div>
+</div>

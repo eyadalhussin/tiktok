@@ -1,0 +1,7 @@
+<div class="mainSeekCont" id={{contID}} >
+    <div class="seekContainer" >
+        <input class="seekBar" type="range" min="0" max={{video.duration}} value="0"
+        (input)="setBar(inputRange, seekFill)" (change)="seekTo(inputRange, seekFill)" #inputRange>
+        <span class="bar" #seekFill></span>
+    </div>
+</div>
